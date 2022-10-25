@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        var obj1 = {
+                x: 1,
+                z: 2,
+                fn: {
+                    number: 1
+                }
+            }
+             function deepObj(obj) {
+                    if (Array.isArray(obj)) {
+                        var newobj = []
+                    } else {
+                        var newobj = {}
+                    }
+                    for (var key in obj) {
+                        if (typeof obj[key] === 'object') {
+                            newobj[key] = deepObj(obj[key])
+                        } else {
+                            newobj[key] = obj[key]
+                        }
+                    }
+                    return newobj;
+                }
+                console.log(deepObj(obj1));
+    </script>
+</body>
+
+</html>
